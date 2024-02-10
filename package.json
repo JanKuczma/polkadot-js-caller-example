@@ -1,0 +1,21 @@
+{
+  "name": "polkadot-js-caller-contract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@727-ventures/typechain-polkadot": "^1.1.1",
+    "@727-ventures/typechain-types": "^1.1.2",
+    "@polkadot/api": "^10.11.2",
+    "@polkadot/types": "^10.11.2",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

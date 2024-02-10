@@ -1,0 +1,9 @@
+[workspace]
+members = ["caller_contract","callee_contract"]
+# exclude = [".git",".cargo", "target"]
+resolver = "2"
+
+# doesn't work LOL
+# [workspace.dependencies]
+# ink = { version = "5.0.0-rc", default-features = false }
+# ink_e2e = "5.0.0-rc"
