@@ -42,4 +42,30 @@ export default class Methods {
 		}, [transaction], __options);
 	}
 
+	/**
+	* saveTransactions
+	*
+	* @param { Array<ArgumentTypes.Transaction> } transactions,
+	*/
+	"saveTransactions" (
+		transactions: Array<ArgumentTypes.Transaction>,
+		__options ? : GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "saveTransactions", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
+		}, [transactions], __options);
+	}
+
+	/**
+	* executeTransactions
+	*
+	*/
+	"executeTransactions" (
+		__options ? : GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "executeTransactions", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
+		}, [], __options);
+	}
+
 }

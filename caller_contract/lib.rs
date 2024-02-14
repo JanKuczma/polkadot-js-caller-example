@@ -40,11 +40,16 @@ mod caller_contract {
     }
 
     #[ink(storage)]
-    pub struct CallerContract;
+    pub struct CallerContract {
+        transactions: Vec<Transaction>,
+    }
+
     impl CallerContract {
         #[ink(constructor)]
         pub fn new() -> Self {
-            Self {}
+            Self {
+                transactions: Vec::new(),
+            }
         }
 
         #[ink(message)]
@@ -61,6 +66,18 @@ mod caller_contract {
             {
                 Ok(Ok(res)) => Some(res),
                 _ => None,
+            }
+        }
+
+        #[ink(message)]
+        pub fn save_transactions(&mut self, transactions: Vec<Transaction>) {
+            self.transactions = transactions;
+        }
+
+        #[ink(message)]
+        pub fn execute_transactions(&mut self) {
+            for transaction in self.transactions.clone() {
+                self.call(transaction);
             }
         }
     }

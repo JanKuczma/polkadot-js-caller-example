@@ -1,9 +1,5 @@
 import type BN from 'bn.js';
 
-export enum LangError {
-	couldNotReadInput = 'CouldNotReadInput'
-}
-
 export type Transaction = {
 	destination: AccountId,
 	selector: Array<(number | string | BN)>,
@@ -14,4 +10,8 @@ export type Transaction = {
 }
 
 export type AccountId = string | number[]
+
+export enum LangError {
+	couldNotReadInput = 'CouldNotReadInput'
+}
 

@@ -68,4 +68,20 @@ export default class Methods {
 		}, [], __options);
 	}
 
+	/**
+	* withdrawNative
+	*
+	* @param { ArgumentTypes.AccountId } to,
+	* @param { (string | number | BN) } amount,
+	*/
+	"withdrawNative" (
+		to: ArgumentTypes.AccountId,
+		amount: (string | number | BN),
+		__options ? : GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "withdrawNative", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
+		}, [to, amount], __options);
+	}
+
 }

@@ -1,5 +1,5 @@
 [workspace]
-members = ["caller_contract","callee_contract"]
+members = ["caller_contract","callee_contract","token"]
 # exclude = [".git",".cargo", "target"]
 resolver = "2"
 

@@ -54,4 +54,18 @@ export default class Methods {
 		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "getSecretStruct", [], __options);
 	}
 
+	/**
+	 * withdrawNative
+	 *
+	 * @param { ArgumentTypes.AccountId } to,
+	 * @param { (string | number | BN) } amount,
+	*/
+	"withdrawNative" (
+		to: ArgumentTypes.AccountId,
+		amount: (string | number | BN),
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "withdrawNative", [to, amount], __options);
+	}
+
 }

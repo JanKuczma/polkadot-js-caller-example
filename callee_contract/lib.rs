@@ -48,5 +48,13 @@ mod callee_contract {
         pub fn get_secret_struct(&self) -> SecretStruct {
             self.secret_struct.clone()
         }
+
+        #[ink(message)]
+        pub fn withdraw_native(&mut self, to: AccountId, amount: Balance) -> bool {
+            match self.env().transfer(to, amount) {
+                Ok(()) => true,
+                Err(_) => false,
+            }
+        }
     }
 }

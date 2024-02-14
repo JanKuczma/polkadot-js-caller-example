@@ -76,4 +76,21 @@ export default class Methods {
 		return queryOkJSON( this.__apiPromise, this.__nativeContract, this.__callerAddress, "getSecretStruct", [], __options, (result) => { return handleReturnType(result, getTypeDescription(7, DATA_TYPE_DESCRIPTIONS)); });
 	}
 
+	/**
+	* withdrawNative
+	*
+	* @param { ArgumentTypes.AccountId } to,
+	* @param { (string | number | BN) } amount,
+	* @returns { void }
+	*/
+	"withdrawNative" (
+		to: ArgumentTypes.AccountId,
+		amount: (string | number | BN),
+		__options: GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "withdrawNative", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
+		}, [to, amount], __options);
+	}
+
 }

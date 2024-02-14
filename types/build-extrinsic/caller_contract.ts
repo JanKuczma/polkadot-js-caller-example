@@ -32,4 +32,26 @@ export default class Methods {
 		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "call", [transaction], __options);
 	}
 
+	/**
+	 * saveTransactions
+	 *
+	 * @param { Array<ArgumentTypes.Transaction> } transactions,
+	*/
+	"saveTransactions" (
+		transactions: Array<ArgumentTypes.Transaction>,
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "saveTransactions", [transactions], __options);
+	}
+
+	/**
+	 * executeTransactions
+	 *
+	*/
+	"executeTransactions" (
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "executeTransactions", [], __options);
+	}
+
 }
